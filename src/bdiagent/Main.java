@@ -17,6 +17,8 @@ public class Main {
 		//son ilerlemiş hali
 		//korhan için deneme
         //korhan deniyor mu?
+		//korhan vuruyor gol mu oluyor 
+		//korhan yapabiliyor mu???
 		getConnection();
 	}
 	public static Connection getConnection() throws Exception{
