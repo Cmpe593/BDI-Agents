@@ -4,4 +4,4 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/kutay/Downloads/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
-</classpath>
+</classpath>   
