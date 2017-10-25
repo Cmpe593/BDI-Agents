@@ -12,9 +12,9 @@ public class Main {
 
 		//This is second test forking
 
-     //this is what korhan does
+		//this is what korhan does
         //this is what korhan does for second time
-
+		//son ilerlemiş hali
 		getConnection();
 	}
 	public static Connection getConnection() throws Exception{
