@@ -10,6 +10,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		//This is for test forking
         //this is what korhan does
+        //this is what korhan does for second time
 		getConnection();
 	}
 	public static Connection getConnection() throws Exception{
