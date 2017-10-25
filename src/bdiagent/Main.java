@@ -16,6 +16,7 @@ public class Main {
         //this is what korhan does for second time
 		//son ilerlemiş hali
 		//korhan için deneme
+        //korhan deniyor mu?
 		getConnection();
 	}
 	public static Connection getConnection() throws Exception{
