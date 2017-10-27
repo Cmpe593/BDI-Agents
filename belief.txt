@@ -8,7 +8,16 @@
 	}
 
 }
-!!! 
+!!!
+{
+	event-schedule:{
+		where: 'Amsterdam',
+		day: 20,
+		month: 7,
+		explanation: 'Conference dinner',
+		event-type: 'Work-Dinner',
+	}
+}
 {
 	event-schedule: {
 		where: 'Rotterdam',
@@ -19,7 +28,7 @@
 		event-Type: 'Sport',
 	}
 }
-!!! 
+!!!
 {	
 	event-schedule: {
 		where: 'Utrecht',
@@ -44,8 +53,26 @@
 	relation: {
 		type: 'event-type',
 		time: '-1',
-		first: 'Talk'
-		second: 'Stay'
+		first: 'Talk',
+		second: 'Stay',
 
 	}
 }
+!!!
+{
+	change: {
+		type: 'update-event',
+		explanation: 'Conference talk',
+		time: 3,
+
+	}
+}
+!!!
+{
+	change: {
+		type: 'drop-event',
+		explanation: 'Theatre',
+
+	}
+}
+!!!
