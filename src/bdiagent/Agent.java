@@ -1,7 +1,6 @@
 package bdiagent;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.json.*;
@@ -39,6 +38,7 @@ public class Agent extends Thread {
 				System.out.println();
 				try {
 					JSONObject json = new JSONObject(arr[j]);
+
 					try {
 						if(json.getJSONObject("event-schedule")!=null){
 							Event tempEvent = new Event(json.getJSONObject("event-schedule"));
@@ -49,7 +49,7 @@ public class Agent extends Thread {
 						// TODO: handle exception
 						System.err.println("json cannot be parsed");
 					}
-					
+
 					//Buraya json dataların isminden anlayıp kalan objeyi ilgili classa koyucaz JSONObject java diye arattır görürsün functionlarını
 					
 				} catch (JSONException e) {

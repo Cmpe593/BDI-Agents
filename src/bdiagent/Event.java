@@ -1,6 +1,5 @@
 package bdiagent;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Event {
@@ -19,6 +18,7 @@ public class Event {
 	}
 	//JSONObjeyi parçalayıp atıcak
 	public void filldata() {
+
 		try {
 			where = event.getString("where");
 			day = event.getInt("day");
@@ -37,6 +37,7 @@ public class Event {
 			System.err.println("wrong json sent into event class");
 		}
 		
+
 		
 	}
 	//Typeına göre importance ayarlayacak
