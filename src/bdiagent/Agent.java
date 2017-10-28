@@ -1,73 +1,86 @@
 package bdiagent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-public class Agent {
-	String name;
+import java.util.Scanner;
+import org.json.*;
+public class Agent extends Thread {
+	private String name;
+	private int sday;
+	private int eday;
 	private ArrayList<Belief> beliefs;
 	private ArrayList<Desire> desires;
 	private ArrayList<Intention> intentions;
-	public  Agent (String name){
+	private ArrayList<Event> events;
+	private ArrayList<Comparison> comparisons;
+	public  Agent (String name, int startday, int endday){
 		this.name = name;
 		this.beliefs = new ArrayList<Belief> () ;
 		this.desires = new ArrayList<Desire>();
 		this.intentions = new ArrayList<Intention> ();
+		this.sday=startday;
+		this.eday=endday;
+		new Thread(this).start();
+		
 	}
-	/**
-	 * @return the beliefs
-	 */
-	public ArrayList<Belief> getBeliefs() {
-		return beliefs;
+	public void run() {
+		for(int i=sday;i<=eday;i++) {
+			String belief;
+			if (i==sday) {
+				belief=readInitialBelief();
+			}
+			else {
+				belief = getBeliefFromConsole();
+			}
+			String[] arr=belief.split("!!!");
+			for(int j=0;j<arr.length;j++) {
+				System.out.println(arr[j]);
+				System.out.println();
+				try {
+					JSONObject json = new JSONObject(arr[j]);
+					try {
+						if(json.getJSONObject("event-schedule")!=null){
+							Event tempEvent = new Event(json.getJSONObject("event-schedule"));
+						}else if(json.getJSONObject("comparison")!=null){
+							
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+						System.err.println("json cannot be parsed");
+					}
+					
+					//Buraya json dataların isminden anlayıp kalan objeyi ilgili classa koyucaz JSONObject java diye arattır görürsün functionlarını
+					
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
-	/**
-	 * @return the desires
-	 */
-	public ArrayList<Desire> getDesires() {
-		return desires;
+	public String readInitialBelief() {
+		File file = new File("belief.txt");
+		try {
+			Scanner sc = new Scanner(file);
+			StringBuffer sb= new StringBuffer();
+			while(sc.hasNextLine()) {
+				sb.append(sc.nextLine());
+			}
+			return sb.toString();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "File Not Found";
+		}
 	}
-	/**
-	 * @return the intentions
-	 */
-	public ArrayList<Intention> getIntentions() {
-		return intentions;
-	}
-	/**
-	 * @param beliefs the beliefs to set
-	 */
-	public void setBeliefs(ArrayList<Belief> beliefs) {
-		this.beliefs = beliefs;
-	}
-	/**
-	 * @param desires the desires to set
-	 */
-	public void setDesires(ArrayList<Desire> desires) {
-		this.desires = desires;
-	}
-	/**
-	 * @param intentions the intentions to set
-	 */
-	public void setIntentions(ArrayList<Intention> intentions) {
-		this.intentions = intentions;
-	}
-	public void addIntention(Intention inten){
-		this.intentions.add(inten);
-	}
-	public void addBelief(Belief inten){
-		this.beliefs.add(inten);
-	}
-	public void addDesire(Desire inten){
-		this.desires.add(inten);
-	}
-	public void deleteIntention(Intention inten) {
-		this.intentions.remove(intentions);
-	}
-	public void deleteBelief(Belief inten){
-		this.beliefs.remove(inten);
-	}
-	public void deleteDesire(Desire inten){
-		this.desires.remove(inten);
-	}
-	@Override
-	public String toString(){
-		return name+" has "+(beliefs.size())+" belief(s) "+(desires.size())+" desire(s) "+ (intentions.size()) +" intentions.";
+	public String getBeliefFromConsole() {
+		Scanner sc = new Scanner(System.in);
+		StringBuffer sb= new StringBuffer();
+		while(sc.hasNextLine()) {
+			sb.append(sc.nextLine());
+		}
+		return sb.toString();
 		
 	}
 
