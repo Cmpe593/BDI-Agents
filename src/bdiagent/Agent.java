@@ -13,9 +13,10 @@ public class Agent extends Thread {
 	private ArrayList<Intention> intentions;
 	private ArrayList<Event> events;
 	private ArrayList<Comparison> comparisons;
+	private ArrayList<Relation> relations;
 	public  Agent (String name, int startday, int endday){
 		this.name = name;
-		this.beliefs = new ArrayList<Belief> () ;
+		this.beliefs = new ArrayList<Belief> ();
 		this.desires = new ArrayList<Desire>();
 		this.intentions = new ArrayList<Intention> ();
 		this.sday=startday;
@@ -41,9 +42,27 @@ public class Agent extends Thread {
 
 					try {
 						if(json.getJSONObject("event-schedule")!=null){
-							Event tempEvent = new Event(json.getJSONObject("event-schedule"));
+							Event event = new Event(json.getJSONObject("event-schedule"));
+							events.add(event);
 						}else if(json.getJSONObject("comparison")!=null){
-							
+							Comparison comparison = new Comparison(json.getJSONObject("comparison"));
+							comparisons.add(comparison);
+						}else if(json.getJSONObject("relation")!=null) {
+							Relation relation = new Relation(json.getJSONObject("relation"));
+							relations.add(relation);
+						}else if(json.getJSONObject("change")!=null) {
+							JSONObject change = json.getJSONObject("change");
+							if(change.getString("type").equalsIgnoreCase("update-event")){
+								int number= getEventID(change.getString("explanation"));
+								if(number!=-1) {
+									events.get(number).setDate(change.getInt("time"));
+								}
+							}else if(change.getString("type").equalsIgnoreCase("drop-event")) {
+								int number= getEventID(change.getString("explanation"));
+								if(number!=-1) {
+									events.remove(number);
+								}
+							}
 						}
 					} catch (Exception e) {
 						// TODO: handle exception
@@ -58,6 +77,16 @@ public class Agent extends Thread {
 				}
 			}
 		}
+	}
+	public int getEventID(String a) {
+		for (int i = 0; i < events.size(); i++) {
+			if(a.equalsIgnoreCase(events.get(i).getExplanation())) {
+				return i;
+			}
+		}
+			
+		
+		return -1;
 	}
 	public String readInitialBelief() {
 		File file = new File("belief.txt");

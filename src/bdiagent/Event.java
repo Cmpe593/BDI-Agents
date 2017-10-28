@@ -1,5 +1,6 @@
 package bdiagent;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Event {
@@ -25,24 +26,26 @@ public class Event {
 			month = event.getInt("month");
 			explanation = event.getString("explanation");
 			type = event.getString("event-type");
-			try {
-				period = event.getString("period");
-			} catch (JSONException e) {
-				// TODO: handle exception
-				System.out.println("period not found");
-			}
+			period = event.getString("period");
+			
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			System.err.println("wrong json sent into event class");
+			System.err.println("Json error");
 		}
 		
 
 		
 	}
+	public String getExplanation() {
+		return this.explanation;
+	}
+	public void setDate(int time) {
+		this.day+=time;
+	}
 	//Typeına göre importance ayarlayacak
-	public void setImportance() {
-		
+	public void setImportance(double imp) {
+		this.importance=imp;
 	}
 	
 }
