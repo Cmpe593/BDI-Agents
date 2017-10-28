@@ -6,7 +6,6 @@
 		'explanation'	: 'Conference talk',
 		'event-type'	: 'Talk',
 	}
-
 }
 !!!
 {
@@ -56,7 +55,6 @@
 		'time'		: '-1',
 		'first'		: 'Talk',
 		'second'	: 'Stay',
-
 	}
 }
 !!!
@@ -65,7 +63,6 @@
 		'type'			: 'update-event',
 		'explanation'	: 'Conference talk',
 		'time'			: 3,
-
 	}
 }
 !!!
@@ -73,7 +70,6 @@
 	'change': {
 		'type'			: 'drop-event',
 		'explanation'	: 'Theatre',
-
 	}
 }
 !!!
