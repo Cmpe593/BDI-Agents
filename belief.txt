@@ -52,7 +52,7 @@
 {
 	'relation': {
 		'type': 'event-type',
-		'time': '-1',
+		'time': -1,
 		'first': 'Talk',
 		'second': 'Stay'
 	}
