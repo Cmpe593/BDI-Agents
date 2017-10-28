@@ -69,7 +69,7 @@
 {
 	'change': {
 		'type': 'drop-event',
-		'explanation:: 'Theatre'
+		'explanation': 'Theatre'
 	}
 }
 !!!

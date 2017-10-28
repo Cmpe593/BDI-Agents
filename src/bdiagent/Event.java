@@ -18,6 +18,26 @@ public class Event {
 	}
 	//JSONObjeyi parçalayıp atıcak
 	public void filldata() {
+
+		try {
+			where = event.getString("where");
+			day = event.getInt("day");
+			month = event.getInt("month");
+			explanation = event.getString("explanation");
+			type = event.getString("event-type");
+			try {
+				period = event.getString("period");
+			} catch (JSONException e) {
+				// TODO: handle exception
+				System.out.println("period not found");
+			}
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			System.err.println("wrong json sent into event class");
+		}
+		
+
 		
 	}
 	//Typeına göre importance ayarlayacak

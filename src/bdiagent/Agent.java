@@ -38,6 +38,18 @@ public class Agent extends Thread {
 				System.out.println();
 				try {
 					JSONObject json = new JSONObject(arr[j]);
+
+					try {
+						if(json.getJSONObject("event-schedule")!=null){
+							Event tempEvent = new Event(json.getJSONObject("event-schedule"));
+						}else if(json.getJSONObject("comparison")!=null){
+							
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+						System.err.println("json cannot be parsed");
+					}
+
 					//Buraya json dataların isminden anlayıp kalan objeyi ilgili classa koyucaz JSONObject java diye arattır görürsün functionlarını
 					
 				} catch (JSONException e) {
