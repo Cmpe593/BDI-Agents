@@ -18,6 +18,7 @@
 		'event-type'	: 'Work-Dinner',
 	}
 }
+!!!
 {
 	'event-schedule': {
 		'where'			: 'Rotterdam',
