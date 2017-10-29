@@ -1,7 +1,4 @@
 package bdiagent;
-
-
-
 //import java.sql.DriverManager;
 
 //import com.mysql.jdbc.Connection;
@@ -13,7 +10,8 @@ public class Main {
 		int startday = 15;
 		int endday= 15;
 		String name= "Agent2K";
-		Thread agent = new Agent(name,startday,endday);
+		int type = 1;// ask to user at the beginning
+		Thread agent = new Agent(name,startday,endday,type);
 	}
 
 	

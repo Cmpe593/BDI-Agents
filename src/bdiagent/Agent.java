@@ -2,8 +2,11 @@ package bdiagent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+
 import org.json.*;
+
 public class Agent extends Thread {
 	private String name;
 	private int sday;
@@ -14,16 +17,23 @@ public class Agent extends Thread {
 	private ArrayList<Event> events;
 	private ArrayList<Comparison> comparisons;
 	private ArrayList<Relation> relations;
-	public  Agent (String name, int startday, int endday){
+	private double[][] list = {{0.1,0.3,0.6,0.9},{0.1,0.3,0.5,0.9}};
+	private int type;
+	public  Agent (String name, int startday, int endday,int type){
+		this.type = type;
 		this.name = name;
 		this.beliefs = new ArrayList<Belief> ();
 		this.desires = new ArrayList<Desire>();
 		this.intentions = new ArrayList<Intention> ();
+		this.events = new ArrayList<Event>();
+		this.comparisons = new ArrayList<Comparison>();
+		this.relations = new ArrayList<Relation>();
 		this.sday=startday;
 		this.eday=endday;
 		new Thread(this).start();
 		
 	}
+	
 	public void run() {
 		for(int i=sday;i<=eday;i++) {
 			String belief;
@@ -35,22 +45,22 @@ public class Agent extends Thread {
 			}
 			String[] arr=belief.split("!!!");
 			for(int j=0;j<arr.length;j++) {
-				System.out.println(arr[j]);
-				System.out.println();
+				//System.out.println(arr[j]);
 				try {
 					JSONObject json = new JSONObject(arr[j]);
 
 					try {
-						if(json.getJSONObject("event-schedule")!=null){
+
+						if(json.has("event-schedule")){
 							Event event = new Event(json.getJSONObject("event-schedule"));
 							events.add(event);
-						}else if(json.getJSONObject("comparison")!=null){
+						}else if(json.has("comparison")){
 							Comparison comparison = new Comparison(json.getJSONObject("comparison"));
 							comparisons.add(comparison);
-						}else if(json.getJSONObject("relation")!=null) {
+						}else if(json.has("relation")) {
 							Relation relation = new Relation(json.getJSONObject("relation"));
 							relations.add(relation);
-						}else if(json.getJSONObject("change")!=null) {
+						}else if(json.has("change")) {
 							JSONObject change = json.getJSONObject("change");
 							if(change.getString("type").equalsIgnoreCase("update-event")){
 								int number= getEventID(change.getString("explanation"));
@@ -74,6 +84,15 @@ public class Agent extends Thread {
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				}
+				for (Event event : events) {
+					calculateImportance(event);
+					if(event.type.equalsIgnoreCase("Stay")){
+						if (checkNextDay("Talk-Speaker",event.day+1)){
+							event.importance += 1; 
+						}
+					}
+					System.out.println(event.toString());
 				}
 			}
 		}
@@ -109,8 +128,44 @@ public class Agent extends Thread {
 		while(sc.hasNextLine()) {
 			sb.append(sc.nextLine());
 		}
+		sc.close();
 		return sb.toString();
+	}
+	public void calculateImportance(Event event) {
+		double importance = 0;
+		Random random = new Random();
+		if(event.type.equalsIgnoreCase("Stay")){
+			if(event.period.equalsIgnoreCase("day")){
+				importance = random.nextDouble()*list[type][1];
+			}else if (event.period.equalsIgnoreCase("night")){
+				importance = random.nextDouble()*list[type][0];
+				if (checkNextDay("Talk-Speaker",event.day+1)){
+					importance += 1; 
+				}
+			}
+		}else if(event.type.equalsIgnoreCase("Work")){
+			if(!event.eventType.equalsIgnoreCase("Talk-Listener")){
+				importance = random.nextDouble()*(1-list[type][3])+list[type][3];
+			}else{
+				importance = random.nextDouble()*list[type][2];
+			}
+		}else if (event.type.equalsIgnoreCase("Entertainment")){
+			importance = random.nextDouble()*(list[type][2]-list[type][1])+list[type][1];;
+		}
+		event.setImportance(importance);
 		
+	}
+	public boolean checkNextDay(String name,int day) {
+		for (Event event : events) {
+			
+			if(event.day == day || event.day == -1){
+				if (event.eventType.equalsIgnoreCase(name)){
+					
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 }

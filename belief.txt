@@ -1,9 +1,144 @@
 {
 	'event-schedule':{
 		'where': 'Amsterdam',
+		'day': 16,
+		'month': 7,
 		'explanation': 'Stay in hotel',
 		'event-type': 'Stay',
 		'type': 'Stay',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 17,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 18,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 19,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 20,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 21,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 21,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Night'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 20,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Night'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 19,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Night'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 18,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Night'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 17,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Night'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 16,
+		'month': 7,
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+		'period': 'Night'
 	}
 }
 !!!
@@ -122,7 +257,7 @@
 		'month': 7,
 		'period': 'Day',
 		'explanation': 'Going Van Gogh Museum',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -134,7 +269,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Basketball game day 1',
-		'event-Type': 'Sport',
+		'event-type': 'Sport',
 		'type': 'Entertainment'
 	}
 }
@@ -146,7 +281,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Theatre day 1',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -158,7 +293,7 @@
 		'month': 7,
 		'period': 'Day',
 		'explanation': 'Museum day 2',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -170,7 +305,7 @@
 		'month': 7,
 		'period': 'Day',
 		'explanation': 'Meeting With Friends',
-		'event-Type': 'Meeting',
+		'event-type': 'Meeting',
 		'type': 'Entertainment'
 	}
 }
@@ -182,7 +317,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Concert day 2',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -194,7 +329,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Opera day 2',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -206,7 +341,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Feyenoord Soccer Game',
-		'event-Type': 'Sport',
+		'event-type': 'Sport',
 		'type': 'Entertainment'
 	}
 }
@@ -218,7 +353,7 @@
 		'month': 7,
 		'period': 'Day',
 		'explanation': 'Ajax Soccer Game',
-		'event-Type': 'Sport',
+		'event-type': 'Sport',
 		'type': 'Entertainment'
 	}
 }
@@ -230,7 +365,7 @@
 		'month': 7,
 		'period': 'Day',
 		'explanation': 'Tennis Match',
-		'event-Type': 'Sport',
+		'event-type': 'Sport',
 		'type': 'Entertainment'
 	}
 }
@@ -242,7 +377,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Dinner With Friends',
-		'event-Type': 'Meeting',
+		'event-type': 'Meeting',
 		'type': 'Entertainment'
 	}
 }
@@ -254,7 +389,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Opera Day 3',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -266,7 +401,7 @@
 		'month': 7,
 		'period': 'Day',
 		'explanation': 'Soccer Match Day 4',
-		'event-Type': 'Sport',
+		'event-type': 'Sport',
 		'type': 'Entertainment'
 	}
 }
@@ -278,7 +413,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Cinema day 4',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -290,7 +425,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Museum day 4',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -302,7 +437,7 @@
 		'month': 7,
 		'period': 'Day',
 		'explanation': 'Theatre day 5',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
@@ -314,7 +449,7 @@
 		'month': 7,
 		'period': 'Night',
 		'explanation': 'Concert day 5',
-		'event-Type': 'Art',
+		'event-type': 'Art',
 		'type': 'Entertainment'
 	}
 }
