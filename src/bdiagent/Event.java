@@ -3,11 +3,14 @@ package bdiagent;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.sun.javafx.runtime.VersionInfo;
+
 public class Event {
 	String where;
 	int day;
 	int month;
 	String type;
+	String eventType;
 	double importance;
 	String explanation;
 	String period;
@@ -22,19 +25,33 @@ public class Event {
 
 		try {
 			where = event.getString("where");
-			day = event.getInt("day");
-			month = event.getInt("month");
+			type = event.getString("type");	
 			explanation = event.getString("explanation");
-			type = event.getString("event-type");
-			period = event.getString("period");
-			
-			
+			eventType = event.getString("event-type");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			System.err.println("Json error");
+			System.err.println("Main Items Json error ");
 		}
-		
-
+		try {
+			if (event.has("day")){
+				day = event.getInt("day");
+			}else{
+				day = -1;
+			}
+			
+			month = event.getInt("month");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Day details not found in Json");
+		}
+		try {
+			if (event.has("period")){
+				period = event.getString("period");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Period not found in Json");
+		}
 		
 	}
 	public String getExplanation() {
@@ -47,5 +64,8 @@ public class Event {
 	public void setImportance(double imp) {
 		this.importance=imp;
 	}
-	
+	@Override
+	public String toString(){
+		return explanation+" in day"+day+ " importance is around " + importance  ;
+	}
 }
