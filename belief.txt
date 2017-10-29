@@ -1,10 +1,105 @@
 {
 	'event-schedule':{
 		'where': 'Amsterdam',
+		'explanation': 'Stay in hotel',
+		'event-type': 'Stay',
+		'type': 'Stay',
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
 		'day': 16,
 		'month': 7,
-		'explanation': 'Conference talk',
-		'event-type': 'Talk'
+		'explanation': 'Conference talk speaker',
+		'event-type': 'Talk-Speaker',
+		'type': 'Work',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 17,
+		'month': 7,
+		'explanation': 'Conference talk listener day 2',
+		'event-type': 'Talk-Listener',
+		'type': 'Work',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 18,
+		'month': 7,
+		'explanation': 'Conference talk listener day 3',
+		'event-type': 'Talk-Listener',
+		'type': 'Work',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 19,
+		'month': 7,
+		'explanation': 'Conference talk listener day 4',
+		'event-type': 'Talk-Listener',
+		'type': 'Work',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 20,
+		'month': 7,
+		'explanation': 'Conference talk listener day 5',
+		'event-type': 'Talk-Listener',
+		'type': 'Work',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 21,
+		'month': 7,
+		'explanation': 'Conference talk listener day 6',
+		'event-type': 'Talk-Listener',
+		'type': 'Work',
+		'period': 'Day'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Istanbul',
+		'day': 15,
+		'month': 7,
+		'explanation': 'Flight to Amsterdam',
+		'event-type': 'Flight',
+		'period': 'Night',
+		'type': 'Work'
+	}
+}
+!!!
+{
+	'event-schedule':{
+		'where': 'Amsterdam',
+		'day': 21,
+		'month': 7,
+		'explanation': 'Flight to Istanbul',
+		'event-type': 'Flight',
+		'period': 'Night',
+		'type': 'Work'
 	}
 }
 !!!
@@ -14,7 +109,93 @@
 		'day': 20,
 		'month': 7,
 		'explanation': 'Conference dinner',
-		'event-type': 'Work-Dinner'
+		'event-type': 'Talk-Dinner',
+		'period': 'Night',
+		'type': 'Work'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 16,
+		'month': 7,
+		'period': 'Day',
+		'explanation': 'Going Van Gogh Museum',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 16,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Basketball game day 1',
+		'event-Type': 'Sport',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 16,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Theatre day 1',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Rotterdam',
+		'day': 17,
+		'month': 7,
+		'period': 'Day',
+		'explanation': 'Museum day 2',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 17,
+		'month': 7,
+		'period': 'Day',
+		'explanation': 'Meeting With Friends',
+		'event-Type': 'Meeting',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 17,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Concert day 2',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 17,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Opera day 2',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
 	}
 }
 !!!
@@ -24,19 +205,117 @@
 		'day': 17,
 		'month': 7,
 		'period': 'Night',
-		'explanation': 'Soccer Game',
-		'event-Type': 'Sport'
+		'explanation': 'Feyenoord Soccer Game',
+		'event-Type': 'Sport',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 18,
+		'month': 7,
+		'period': 'Day',
+		'explanation': 'Ajax Soccer Game',
+		'event-Type': 'Sport',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 18,
+		'month': 7,
+		'period': 'Day',
+		'explanation': 'Tennis Match',
+		'event-Type': 'Sport',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 18,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Dinner With Friends',
+		'event-Type': 'Meeting',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 18,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Opera Day 3',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 19,
+		'month': 7,
+		'period': 'Day',
+		'explanation': 'Soccer Match Day 4',
+		'event-Type': 'Sport',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 19,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Cinema day 4',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{	
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 19,
+		'month': 7,
+		'period': 'Night',
+		'explanation': 'Museum day 4',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
 	}
 }
 !!!
 {	
 	'event-schedule': {
 		'where': 'Utrecht',
-		'day': 18,
+		'day': 20,
+		'month': 7,
+		'period': 'Day',
+		'explanation': 'Theatre day 5',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
+	}
+}
+!!!
+{	
+	'event-schedule': {
+		'where': 'Amsterdam',
+		'day': 20,
 		'month': 7,
 		'period': 'Night',
-		'explanation': 'Theatre',
-		'event-Type': 'Art'
+		'explanation': 'Concert day 5',
+		'event-Type': 'Art',
+		'type': 'Entertainment'
 	}
 }
 !!!
@@ -44,7 +323,8 @@
 	'comparison': {
 		'type': 'event-type',
 		'first': 'Art',
-		'second': 'Sport'
+		'second': 'Sport',
+		'amount': 0.2
 	}
 
 }
@@ -53,23 +333,7 @@
 	'relation': {
 		'type': 'event-type',
 		'time': -1,
-		'first': 'Talk',
+		'first': 'Talk-Speaker',
 		'second': 'Stay'
 	}
 }
-!!!
-{
-	'change': {
-		'type': 'update-event',
-		'explanation': 'Conference talk',
-		'time': 3
-	}
-}
-!!!
-{
-	'change': {
-		'type': 'drop-event',
-		'explanation': 'Theatre'
-	}
-}
-!!!
