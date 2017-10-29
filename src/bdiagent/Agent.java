@@ -17,7 +17,7 @@ public class Agent extends Thread {
 	private ArrayList<Event> events;
 	private ArrayList<Comparison> comparisons;
 	private ArrayList<Relation> relations;
-	private double[][] list = {{0.1,0.3,0.6,0.9},{0.1,0.3,0.5,0.9}};
+	private double[][] list = {{0.1,0.3,0.6,0.9},{0.1,0.3,0.5,0.8}};
 	private int type;
 	public  Agent (String name, int startday, int endday,int type){
 		this.type = type;
@@ -54,6 +54,8 @@ public class Agent extends Thread {
 						if(json.has("event-schedule")){
 							Event event = new Event(json.getJSONObject("event-schedule"));
 							events.add(event);
+							calculateImportance(event);
+							System.out.println(event.toString());
 						}else if(json.has("comparison")){
 							Comparison comparison = new Comparison(json.getJSONObject("comparison"));
 							comparisons.add(comparison);
@@ -87,13 +89,13 @@ public class Agent extends Thread {
 				}
 			}
 			for (Event event : events) {
-				calculateImportance(event);
-				if(event.type.equalsIgnoreCase("Stay")){
-					if (checkNextDay("Talk-Speaker",event.day+1)){
-						event.importance += 1; 
-					}
+				for (Relation r : relations) {
+					relationExecuter(event,r);
 				}
-				System.out.println(event.toString());
+				for (Comparison c : comparisons) {
+					comparisonExecuter(event,c);
+				}
+				
 			}
 		}
 	}
@@ -103,8 +105,6 @@ public class Agent extends Thread {
 				return i;
 			}
 		}
-			
-		
 		return -1;
 	}
 	public String readInitialBelief() {
@@ -115,6 +115,7 @@ public class Agent extends Thread {
 			while(sc.hasNextLine()) {
 				sb.append(sc.nextLine());
 			}
+			sc.close();
 			return sb.toString();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -139,15 +140,12 @@ public class Agent extends Thread {
 				importance = random.nextDouble()*list[type][1];
 			}else if (event.period.equalsIgnoreCase("night")){
 				importance = random.nextDouble()*list[type][0];
-				if (checkNextDay("Talk-Speaker",event.day+1)){
-					importance += 1; 
-				}
 			}
 		}else if(event.type.equalsIgnoreCase("Work")){
-			if(!event.eventType.equalsIgnoreCase("Talk-Listener")){
-				importance = random.nextDouble()*(1-list[type][3])+list[type][3];
+			if(event.eventType.equalsIgnoreCase("Talk-Speaker")){
+				importance = 1.5;
 			}else{
-				importance = random.nextDouble()*list[type][2];
+				importance = random.nextDouble()*(1-list[type][3])+list[type][3];
 			}
 		}else if (event.type.equalsIgnoreCase("Entertainment")){
 			importance = random.nextDouble()*(list[type][2]-list[type][1])+list[type][1];;
@@ -157,7 +155,6 @@ public class Agent extends Thread {
 	}
 	public boolean checkNextDay(String name,int day) {
 		for (Event event : events) {
-			
 			if(event.day == day || event.day == -1){
 				if (event.eventType.equalsIgnoreCase(name)){
 					
@@ -166,6 +163,32 @@ public class Agent extends Thread {
 			}
 		}
 		return false;
+	}
+	public void  relationExecuter(Event event,Relation r) {
+		if(event.eventType.equalsIgnoreCase(r.first)){
+			for (Event event2 : events) {
+				if(event2.eventType.equalsIgnoreCase(r.second)){
+					if (event2.day==event.day+r.time){
+						if(event2.period.equalsIgnoreCase(r.period)){
+							event2.importance += event.importance;
+							System.out.println("oluyor mu "+event2.toString());
+						}
+					}
+				}
+			}
+		}
+	}
+	public void  comparisonExecuter(Event event,Comparison c) {
+		if(event.eventType.equalsIgnoreCase(c.first)){
+			for (Event event2 : events) {
+				if(event2.eventType.equalsIgnoreCase(c.second)){
+					if(event.day==event2.day&&event.period.equalsIgnoreCase(event2.period)){
+						event.importance += c.amount;
+						System.out.println("update geldi hanım"+event.toString());
+					}
+				}
+			}
+		}
 	}
 
 }

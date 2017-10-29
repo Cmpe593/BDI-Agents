@@ -7,14 +7,14 @@ public class Relation {
 	String first;
 	String second;
 	int time;
-	String type;
+	String period;
 	public Relation(JSONObject relation){
 		this.relation=relation;
 		fillData();
 	}
 	public void fillData(){
 		try {
-		type=relation.getString("type");
+		period=relation.getString("period");
 		first=relation.getString("first");
 		second=relation.getString("second");
 		time=relation.getInt("time");

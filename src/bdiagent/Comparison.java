@@ -4,9 +4,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Comparison {
-	String type;
 	String first;
 	String second;
+	double amount;
 	JSONObject comparison;
 	public Comparison(JSONObject comp) {
 		this.comparison=comp;
@@ -16,7 +16,7 @@ public class Comparison {
 	//Fill data like event
 	public void fillData(){
 		try {
-		type=comparison.getString("type");
+		amount = comparison.getDouble("amount");
 		first=comparison.getString("first");
 		second=comparison.getString("second");
 		}

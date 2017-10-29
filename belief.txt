@@ -456,7 +456,6 @@
 !!!
 {
 	'comparison': {
-		'type': 'event-type',
 		'first': 'Art',
 		'second': 'Sport',
 		'amount': 0.2
@@ -466,7 +465,7 @@
 !!!
 {
 	'relation': {
-		'type': 'event-type',
+		'period':'night',
 		'time': -1,
 		'first': 'Talk-Speaker',
 		'second': 'Stay'
