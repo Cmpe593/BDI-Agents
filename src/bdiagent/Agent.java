@@ -85,15 +85,15 @@ public class Agent extends Thread {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				for (Event event : events) {
-					calculateImportance(event);
-					if(event.type.equalsIgnoreCase("Stay")){
-						if (checkNextDay("Talk-Speaker",event.day+1)){
-							event.importance += 1; 
-						}
+			}
+			for (Event event : events) {
+				calculateImportance(event);
+				if(event.type.equalsIgnoreCase("Stay")){
+					if (checkNextDay("Talk-Speaker",event.day+1)){
+						event.importance += 1; 
 					}
-					System.out.println(event.toString());
 				}
+				System.out.println(event.toString());
 			}
 		}
 	}
