@@ -465,9 +465,10 @@
 !!!
 {
 	'relation': {
-		'period':'night',
 		'time': -1,
 		'first': 'Talk-Speaker',
-		'second': 'Stay'
+		'second': 'Stay',
+		'first-period': 'Day',
+		'second-period': 'Night'
 	}
 }

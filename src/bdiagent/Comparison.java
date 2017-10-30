@@ -24,4 +24,7 @@ public class Comparison {
 			System.err.println("Json problem");
 		}
 	}
+	public String toString() {
+		return "New Belief: "+first+" is more important then "+second+ "with the amount "+amount;
+	}
 }

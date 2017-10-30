@@ -11,13 +11,21 @@ public class Event {
 	int month;
 	String type;
 	String eventType;
-	double importance;
+	private double totalimportance;
+	private double baseimportance;
+	private double additionalimportance;
 	String explanation;
 	String period;
 	JSONObject event;
 	public Event(JSONObject event) {
 		this.event=event;
 		filldata();
+		additionalimportance=0;
+		baseimportance=0;
+		totalimportance=baseimportance+additionalimportance;
+		
+	}
+	public Event() {
 		
 	}
 	//JSONObjeyi parçalayıp atıcak
@@ -60,12 +68,29 @@ public class Event {
 	public void setDate(int time) {
 		this.day+=time;
 	}
-	//Typeına göre importance ayarlayacak
-	public void setImportance(double imp) {
-		this.importance=imp;
+	public void setAdditional(double d) {
+		this.additionalimportance=d;
+		this.totalimportance=d+this.baseimportance;
 	}
+	public void setBase(double d) {
+		this.baseimportance=d;
+		this.totalimportance=this.additionalimportance+d;
+	}
+	public double getTotal() {
+		return this.totalimportance;
+	}
+	public double getAdditional() {
+		return this.additionalimportance;
+	}
+	public double getBase() {
+		return this.baseimportance;
+	}
+	
 	@Override
 	public String toString(){
-		return explanation+" in day"+day+ " importance is around " + importance  ;
+		return "New Belief: "+"\""+explanation+"\" in Day "+day+ ", its period is "+period+" and its importance is " + (baseimportance+additionalimportance)  ;
+	}
+	public String eventInfo(){
+		return "\""+explanation+"\" in Day "+day+ ", its period is "+period+" and its importance is " + (baseimportance+additionalimportance)  ;
 	}
 }
